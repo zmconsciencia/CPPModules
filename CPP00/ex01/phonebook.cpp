@@ -26,13 +26,19 @@ void	phonebook::displayContacts(){
 
 void	phonebook::Search(){
 	std::string i;
+	int n;
 	displayContacts();
 	while (1)
 	{
 		std::cout << "INDEX: ";
 		std::getline(std::cin, i);
-		contacts[contactCount - std::atoi(i.c_str())].Print();
-		// break;
+		n = std::atoi(i.c_str());
+		if (n > contactCount || i.empty() || n <= 0)
+			std::cout << "Invalid input." << std::endl;
+		else {
+			contacts[contactCount - n].Print();
+			break;
+		}
 	}
 }
 

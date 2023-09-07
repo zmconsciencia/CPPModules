@@ -34,7 +34,11 @@ public:
     }
 	void Print()
 	{
-		std::cout << fName << std::endl;
+		std::cout << "First Name: " << fName << std::endl;
+		std::cout << "Last Name: " << lName << std::endl;
+		std::cout << "Nickname: " << nName << std::endl;
+		std::cout << "Phone Number: " << pNum << std::endl;
+		std::cout << "Darkest Secret: " << dSec << std::endl;
 	}
 };
 
