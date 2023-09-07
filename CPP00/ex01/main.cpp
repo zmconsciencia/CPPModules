@@ -10,7 +10,7 @@ int main() {
 	while (1)
 	{
 		std::cout << "Input: ";
-		std::cin >> option;
+		std::getline(std::cin, option);
 		if (option == "EXIT")
 			break ;
 		else if (option == "ADD") {
@@ -18,6 +18,6 @@ int main() {
 			phonebook.addContact(contact);
 		}
 		else if (option == "SEARCH")
-			phonebook.displayContacts();
+			phonebook.Search();
 	}
 }

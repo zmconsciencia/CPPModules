@@ -6,14 +6,15 @@
 class phonebook
 {
 private:
-	static const int maxContact = 8; // Maximum number of contacts
-    contact contacts[maxContact];    // Array of Student objects
-    int contactCount;                 // Current number of contacts
+	static const int maxContact = 3;
+    contact contacts[maxContact];
+    int contactCount;
 public:
 	phonebook();
 	~phonebook();
-	bool addContact(contact contact);
+	void addContact(contact contact);
 	void displayContacts();
+	void Search();
 };
 
 #endif
