@@ -2,13 +2,8 @@
 
 char	*megaphone(char *av)
 {
-	int i = -1;
-
-	while (av[++i] != '\0')
-	{
-		if (av[i] >= 'a' && av[i] <= 'z')
-			av[i] -= 32;
-	}
+	for (int i = 0; av[i] != '\0'; i++)
+		av[i] = toupper(av[i]);
 	return (av);
 }
 
