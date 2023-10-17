@@ -15,6 +15,6 @@ int main(int ac, char **av)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	else
 		while (++i < ac)
-			std::cout << megaphone(av[i]);
+			std::cout << megaphone(av[i]) << ' ';
 	std::cout<<std::endl;
 }
