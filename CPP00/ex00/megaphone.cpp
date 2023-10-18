@@ -1,10 +1,12 @@
 #include <iostream>
+#include <string>
 
-char	*megaphone(char *av)
+std::string megaphone(char *av)
 {
-	for (int i = 0; av[i] != '\0'; i++)
-		av[i] = toupper(av[i]);
-	return (av);
+	std::string str = av;
+	for (int i = 0; str[i] != '\0'; i++)
+		str[i] = toupper(str[i]);
+	return (str);
 }
 
 int main(int ac, char **av)
