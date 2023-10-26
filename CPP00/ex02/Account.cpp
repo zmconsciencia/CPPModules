@@ -1,5 +1,7 @@
 #include "Account.hpp"
 #include "iostream"
+#include "ctime"
+#include "iomanip"
 
 int		Account::_nbAccounts = 0;
 int		Account::_totalAmount = 0;
@@ -56,7 +58,18 @@ void	Account::displayStatus( void ) const {
 }
 
 void	Account::_displayTimestamp( void ) {
-	std::cout << "[19920104_091532] ";
+	tm		*t;
+	time_t	now;
+
+	time(&now);
+	t = gmtime(&now);
+	std::cout << "[" << t->tm_year + 1900;
+	std::cout << std::setfill('0') << std::setw(2) << t->tm_mon + 1;
+	std::cout << std::setfill('0') << std::setw(2) << t->tm_mday << "_";
+	std::cout << std::setfill('0') << std::setw(2) << t->tm_hour + 1;
+	std::cout << std::setfill('0') << std::setw(2) << t->tm_min;
+	std::cout << std::setfill('0') << std::setw(2) << t->tm_sec;
+	std::cout << "]";
 }
 
 int		Account::getNbAccounts( void ) {
