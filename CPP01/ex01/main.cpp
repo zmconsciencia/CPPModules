@@ -2,10 +2,13 @@
 
 Zombie *zombieHorde(int N, std::string name);
 
-int main() {
-    Zombie *ola = zombieHorde(5, "Afonso");
-    for (int i = 0; i < 5; i++)
-        ola[i].announce();
-    delete [] ola;
-    return (0);
+int main() 
+{
+	int	size;
+
+	size = 20;
+	Zombie *horde = zombieHorde(size, "Zombie");
+	for (int i = 0; i < size; i++)
+		horde[i].announce();
+	delete [] horde;
 }
