@@ -6,13 +6,18 @@
 std::string replaceAll(std::string &file, std::string &from, std::string &to) {
     if (from.empty())
         return file;
+    std::string result;
+    size_t startPos = 0;
     size_t pos = file.find(from);
+
     while (pos != std::string::npos) {
-        file.erase(pos, from.length());
-        file.insert(pos, to);
-        pos = file.find(from, pos + to.length());
+        result += file.substr(startPos, pos - startPos) + to;
+        startPos = pos + from.length();
+        pos = file.find(from, startPos);
     }
-    return (file);
+
+    result += file.substr(startPos);
+    return result;
 }
 
 int main(int ac, char **av) {
