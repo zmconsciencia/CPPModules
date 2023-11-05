@@ -11,7 +11,8 @@ std::string replaceAll(std::string &file, std::string &from, std::string &to) {
     size_t pos = file.find(from);
 
     while (pos != std::string::npos) {
-        result += file.substr(startPos, pos - startPos) + to;
+        result += file.substr(startPos, pos - startPos);
+        result += to;
         startPos = pos + from.length();
         pos = file.find(from, startPos);
     }
@@ -29,11 +30,16 @@ int main(int ac, char **av) {
         std::ifstream infile(filename.c_str());
         if (infile.is_open()) {
             std::ofstream outfile(outfileName.c_str());
-            std::string buffer;
-            while (getline(infile, buffer)) {
-                std::string replacedLine = replaceAll(buffer, toRep, _Rep);
-                outfile << replacedLine << std::endl;
+            if (outfile.is_open()) {
+                std::string buffer;
+                while (getline(infile, buffer)) {
+                    std::string replacedLine = replaceAll(buffer, toRep, _Rep);
+                    outfile << replacedLine << std::endl;
+                }
+            outfile.close();
             }
+            else {std::cerr << "Error opening the outfile." << std::endl;}
+        infile.close();
         }
         else {
             std::cerr << "No matching file." << std::endl;
