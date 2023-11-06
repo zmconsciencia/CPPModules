@@ -12,25 +12,19 @@ int getLevel(std::string level) {
 
 void    harlFilter(std::string level, Harl &harl) {
     int i = getLevel(level);
-    while (i < 5) {
-        switch (i)
-        {
-            case 0:
-                harl.complain("DEBUG");
-                break ;
-            case 1:
-                harl.complain("INFO");
-                break;
-            case 2:
-                harl.complain("WARNING");
-                break;
-            case 3:
-                harl.complain("ERROR");
-                return ;
-            default:
-                std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-        }
-        i++;
+    switch (i)
+    {
+        case 0:
+            harl.complain("DEBUG");
+        case 1:
+            harl.complain("INFO");
+        case 2:
+            harl.complain("WARNING");
+        case 3:
+            harl.complain("ERROR");
+            return ;
+        default:
+            std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
     }
 }
 
