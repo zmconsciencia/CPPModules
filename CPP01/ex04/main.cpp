@@ -2,34 +2,50 @@
 #include "string"
 #include "fstream"
 
-std::string    replaceAll(std::string str, std::string from, std::string to) {
-    size_t i = 0;
-    while ((i = str.find(from, i)) != std::string::npos)
-    {
-        str.replace(i, from.length(), to);
-        i += from.length();
+
+std::string replaceAll(std::string &file, std::string &from, std::string &to) {
+    if (from.empty())
+        return file;
+    std::string result;
+    size_t startPos = 0;
+    size_t pos = file.find(from);
+
+    while (pos != std::string::npos) {
+        result += file.substr(startPos, pos - startPos);
+        result += to;
+        startPos = pos + from.length();
+        pos = file.find(from, startPos);
     }
-    return (str);
+
+    result += file.substr(startPos);
+    return result;
 }
 
 int main(int ac, char **av) {
-    char *filename = av[1];
-    std::ifstream file;
-    file.open(filename);
-    std::string buffer;
-    std::string toRep = av[2];
-    std::string _Rep = av[3];
-
-    if (ac != 4)
-        std::cerr << "Wrong number of arguments." << std::endl;
-    else {
-        if (file.is_open()){
-            std::string outfileName = std::string(filename) + ".replace";
-            std::ofstream out(outfileName.c_str());
-            while ( std::getline(file, buffer)) {
-                std::string replace = replaceAll(buffer, toRep, _Rep);
-                out << replace << std::endl;
+    if (ac == 4) {
+        std::string filename = av[1];
+        std::string outfileName = filename + ".replace";
+        std::string toRep = av[2];
+        std::string _Rep = av[3];
+        std::ifstream infile(filename.c_str());
+        if (infile.is_open()) {
+            std::ofstream outfile(outfileName.c_str());
+            if (outfile.is_open()) {
+                std::string buffer;
+                while (getline(infile, buffer)) {
+                    std::string replacedLine = replaceAll(buffer, toRep, _Rep);
+                    outfile << replacedLine << std::endl;
+                }
+            outfile.close();
             }
+            else {std::cerr << "Error opening the outfile." << std::endl;}
+        infile.close();
         }
+        else {
+            std::cerr << "No matching file." << std::endl;
+        }
+    }
+    else {
+        std::cerr << "Wrong number of arguments." << std::endl;
     }
 }
