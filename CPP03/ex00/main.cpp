@@ -2,8 +2,8 @@
 
 int main( void ) {
 
-	ClapTrap x = ClapTrap("Otario 1");
-	ClapTrap y = ClapTrap("Otario 2");
+	ClapTrap x = ClapTrap("Miguel");
+	ClapTrap y = ClapTrap("Afonso");
 
 	x.attack(y.getName());
 	y.takeDamage(x.getDamage());
