@@ -1,19 +1,19 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap() :name("default") {
-    std::cout << "Default constructor was called with name "<< this->name << "." << std::endl;
+    std::cout << "ClapTrap default constructor was called with name "<< this->name << "." << std::endl;
     this->hitPoints = 10;
     this->energyPoints = 10;
     this->attackDamage = 0;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &object) {
-    std::cout << "Copy constructor was called with name "<< object.name << "." << std::endl;
+    std::cout << "ClapTrap copy constructor was called with name "<< object.name << "." << std::endl;
     *this = object;
 }
 
 ClapTrap::ClapTrap(std::string name) {
-    std::cout << "Constructor with parameter was called with name "<< name << "." << std::endl;
+    std::cout << "ClapTrap Constructor with parameter was called with name "<< name << "." << std::endl;
     this->name = name;
     this->hitPoints = 10;
     this->energyPoints = 10;
@@ -32,7 +32,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &object) {
 }
 
 ClapTrap::~ClapTrap() {
-    std::cout << "Destructor for " << this->name << " was called." << std::endl;
+    std::cout << "ClapTrap Destructor for " << this->name << " was called." << std::endl;
 }
 
 void ClapTrap::attack(const std::string &target) {
