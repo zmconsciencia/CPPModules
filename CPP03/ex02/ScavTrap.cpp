@@ -1,6 +1,6 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(): ClapTrap(){
+ScavTrap::ScavTrap() {
     this->name = "default";
     this->attackDamage = 20;
     this->energyPoints = 50;
@@ -8,7 +8,7 @@ ScavTrap::ScavTrap(): ClapTrap(){
     std::cout << "ScavTrap default constructor was called." << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name): ClapTrap(name){
+ScavTrap::ScavTrap(std::string name) {
     this->name = name;
     this->attackDamage = 20;
     this->energyPoints = 50;
@@ -21,7 +21,7 @@ ScavTrap::ScavTrap(const ScavTrap &object) :ClapTrap(){
     *this = object;
 }
 
-ScavTrap &ScavTrap::operator=(const ScavTrap &object){
+ScavTrap &ScavTrap::operator=(const ScavTrap &object) {
     std::cout << "ScavTrap copy assignment operator was called." << std::endl;
     if (this != &object) {
         this->name = object.name;
