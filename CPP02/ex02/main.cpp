@@ -4,6 +4,7 @@ int main() {
     Fixed a;
     Fixed b(5.05f);  // Create a Fixed object from a float
     Fixed c(2);
+    Fixed inc;
 
     // Printing initial values
     std::cout << "a: " << a << std::endl;
@@ -31,6 +32,8 @@ int main() {
     Fixed f = b--;
     Fixed g = --b;
 
+
+    std::cout << ++inc << std::endl;
     std::cout << "a++ (post-increment): " << d << std::endl;
     std::cout << "++a (pre-increment): " << e << std::endl;
     std::cout << "b-- (post-decrement): " << f << std::endl;
