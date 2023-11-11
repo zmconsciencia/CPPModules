@@ -1,15 +1,15 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main() {
-    ScavTrap Ze("Jose Consciencia");
-    ScavTrap Migas("Miguel Leao");
-    ScavTrap Oscar(Migas);
+    FragTrap Ze("Jose Consciencia");
+    FragTrap Migas("Miguel Leao");
+    FragTrap Oscar(Migas);
 
     Oscar.setName("Oscar");
 
     std::cout << std::endl;
 
-    Migas.attack(Ze.getName());
+    Migas.attack("Jose Consciencia");
     Ze.takeDamage(Migas.getDamage());
 
     std::cout << std::endl;
@@ -27,8 +27,16 @@ int main() {
 
     std::cout << std::endl;
 
-    Oscar.guardGate();
-    Ze.guardGate();
+    Oscar.highFivesGuys();
+    Ze.highFivesGuys();
+
+    Migas.setDamage(1);
+    for (int i = 0; i < 100; i++)
+    {
+        Migas.attack(Oscar.getName());
+        if (Migas.getEnergy() > 0)
+            Oscar.takeDamage(Migas.getDamage());
+    }
 
     std::cout << std::endl;
 

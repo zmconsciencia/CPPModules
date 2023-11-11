@@ -101,3 +101,7 @@ std::string ClapTrap::getName(void) {
 void ClapTrap::setName(const std::string name) {
     this->name = name;
 }
+
+int ClapTrap::getEnergy(void) {
+    return this->energyPoints;
+}
