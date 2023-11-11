@@ -5,6 +5,7 @@ ScavTrap::ScavTrap() {
     this->attackDamage = 20;
     this->energyPoints = 50;
     this->hitPoints = 100;
+    std::cout << "ScavTrap default constructor was called." << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name) {
@@ -12,11 +13,11 @@ ScavTrap::ScavTrap(std::string name) {
     this->attackDamage = 20;
     this->energyPoints = 50;
     this->hitPoints = 100;
-    std::cout << "ScavTrap constructor with parameters was called with name " << name << std::endl;
+    std::cout << "ScavTrap constructor with parameters was called." << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &object) :ClapTrap(){
-    std::cout << "ScavTrap copy constructor was called with name " << object.name << std::endl;
+    std::cout << "ScavTrap copy constructor was called." << std::endl;
     *this = object;
 }
 
@@ -32,9 +33,23 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &object) {
 }
 
 ScavTrap::~ScavTrap() {
-    std::cout << this->name << " ScavTrap destructor was called" << std::endl;
+    std::cout << "ScavTrap destructor was called" << std::endl;
+}
+
+void ScavTrap::attack(const std::string &target) {
+     if ( this->energyPoints && this->hitPoints )
+    {
+        std::cout << "ScavTrap "<< this->name <<" attacks "<< target 
+            << " causing " << this->getDamage() << " points of damage." << std::endl;
+        this->energyPoints--;
+    }
+    else
+        this->handleStatus();
 }
 
 void ScavTrap::guardGate(void) {
-    std::cout << this->name << " ScavTrap is now in gatekeeper mode." << std::endl;
+    if (this->hitPoints)
+        std::cout << "ScavTrap " << this->name << " is now in gatekeeper mode." << std::endl;
+    else
+        this->handleStatus();
 }

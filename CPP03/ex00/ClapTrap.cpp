@@ -21,7 +21,7 @@ ClapTrap::ClapTrap(std::string name) {
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &object) {
-    std::cout << "Copy assignment constructor was called." << std::endl;
+    std::cout << "Copy assignment operator was called." << std::endl;
     if (this != &object) {
         this->name = object.name;
         this->hitPoints = object.hitPoints;
@@ -65,7 +65,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
         this->handleStatus();
 }
 
-void ClapTrap::repairDamage(unsigned int amount) {
+void ClapTrap::beRepaired(unsigned int amount) {
     if (this->hitPoints && this->energyPoints) {
         if (amount > 0) {
             this->hitPoints += amount;

@@ -18,11 +18,13 @@ class ClapTrap {
 
         void attack(const std::string &target);
         void takeDamage(unsigned int amount);
-        void repairDamage(unsigned int amount);
+        void beRepaired(unsigned int amount);
 
-        std::string getName(void);
         void setDamage(unsigned int amount);
         int getDamage(void);
+
+        std::string getName(void);
+        void setName(const std::string name);
 
         void handleStatus(void);
 };
