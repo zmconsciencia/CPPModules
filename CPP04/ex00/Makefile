@@ -1,7 +1,7 @@
-NAME  = Annnd_Open
+NAME  = Polymorphism
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = main.cpp Animal.cpp
+SRCS = main.cpp Animal.cpp Dog.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
