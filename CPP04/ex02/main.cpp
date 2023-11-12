@@ -29,6 +29,7 @@
 // }
 
 int main() {
+    // const Animal x;
     const Animal *animals[10];
 
     for (int i = 0; i < 10; i++) {
