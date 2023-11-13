@@ -29,8 +29,8 @@
 // }
 
 int main() {
-    // const Animal x;
-    const Animal *animals[10];
+    // const AAnimal x;
+    const AAnimal *animals[10];
 
     for (int i = 0; i < 10; i++) {
         if (i == 0)
