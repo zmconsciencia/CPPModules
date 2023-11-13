@@ -26,10 +26,6 @@ Cat::~Cat() {
     delete this->_Brain;
 }
 
-std::string Cat::getType(void) const {
-    return this->type;
-}
-
 void Cat::makeSound(void) const {
     std::cout << "Meow!" << std::endl;
 }

@@ -21,7 +21,3 @@ WrongCat &WrongCat::operator=(const WrongCat &object) {
 WrongCat::~WrongCat() {
     std::cout << "WrongCat destructor was called." << std::endl;
 }
-
-std::string WrongCat::getType(void) const {
-    return this->type;
-}

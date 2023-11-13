@@ -12,7 +12,6 @@ class Cat : public Animal {
         Cat(const Cat &object);
         Cat &operator=(const Cat &object);
         ~Cat();
-        std::string getType(void) const ;
         void makeSound(void) const ;
         void printIdeas(int n);
         void setIdea(std::string idea, int n);
